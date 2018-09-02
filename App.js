@@ -6,6 +6,8 @@
 
 import Amplify from 'aws-amplify-react-native';
 
+import { withAuthenticator } from 'aws-amplify-react-native';
+
 import aws_exports from './aws-exports';
 
 import React, { Component } from 'react';
@@ -23,7 +25,7 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-export default class App extends Component<{}> {
+class App extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
@@ -61,3 +63,4 @@ const styles = StyleSheet.create({
 });
 
 Amplify.configure(aws_exports);
+export default withAuthenticator(App);
